@@ -63,6 +63,11 @@ COPY --from=locale-patcher /output/javascript /opt/mastodon/app/javascript/masto
 COPY --from=locale-patcher /output/config /opt/mastodon/config/locales/
 COPY overlay/ /opt/mastodon/
 
+# Prepend ai-robots.txt to upstream robots.txt.
+RUN curl -sSL https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt | \
+  cat - public/robots.txt > public/robots.txt.new && \
+  mv public/robots.txt{.new,}
+
 # Recompile assets, now with patches and overlays.
 RUN SECRET_KEY_BASE_DUMMY=1 \
   bundle exec rails assets:precompile && \
