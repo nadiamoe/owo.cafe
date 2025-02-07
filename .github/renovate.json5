@@ -1,37 +1,49 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>nadiamoe/renovate-config",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>nadiamoe/renovate-config',
   ],
-  "regexManagers": [
+  customManagers: [
     {
-      "fileMatch": [ "^Dockerfile$" ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "ghcr.io/mastodon/mastodon",
-      "matchStrings": [
-        "ARG MASTODON_VERSION=\"(?<currentValue>.*)\""
-      ]
+      customType: 'regex',
+      fileMatch: [
+        '^Dockerfile$',
+      ],
+      datasourceTemplate: 'docker',
+      depNameTemplate: 'ghcr.io/mastodon/mastodon',
+      matchStrings: [
+        'ARG MASTODON_VERSION="(?<currentValue>.*)"',
+      ],
     },
     {
-      "fileMatch": [ "^Dockerfile$" ],
-      "datasourceTemplate": "node-version",
-      "depNameTemplate": "node",
-      "matchStrings": [
-        "ARG NODE_VERSION=\"(?<currentValue>.*)\""
-      ]
-    },    {
-      "fileMatch": [ "^Dockerfile.streaming$" ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "ghcr.io/mastodon/mastodon-streaming",
-      "matchStrings": [
-        "ARG MASTODON_VERSION=\"(?<currentValue>.*)\""
-      ]
-    }
-  ],
-  "packageRules": [
+      customType: 'regex',
+      fileMatch: [
+        '^Dockerfile$',
+      ],
+      datasourceTemplate: 'node-version',
+      depNameTemplate: 'node',
+      matchStrings: [
+        'ARG NODE_VERSION="(?<currentValue>.*)"',
+      ],
+    },
     {
-      "matchDepNames": ["ghcr.io/mastodon/*"],
-      "groupName": "masotodon",
-    }
-  ]
+      customType: 'regex',
+      fileMatch: [
+        '^Dockerfile.streaming$',
+      ],
+      datasourceTemplate: 'docker',
+      depNameTemplate: 'ghcr.io/mastodon/mastodon-streaming',
+      matchStrings: [
+        'ARG MASTODON_VERSION="(?<currentValue>.*)"',
+      ],
+    },
+  ],
+  packageRules: [
+    {
+      matchDepNames: [
+        'ghcr.io/mastodon/*',
+      ],
+      groupName: 'masotodon',
+    },
+  ],
 }
