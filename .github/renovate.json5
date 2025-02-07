@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":semanticCommitsDisabled"
+    "github>nadiamoe/renovate-config",
   ],
   "regexManagers": [
     {
