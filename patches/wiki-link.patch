@@ -1,4 +1,4 @@
-From ec294a5124ab0fcf553684b00b5e54341f91fe19 Mon Sep 17 00:00:00 2001
+From e2c3b88a20df3e3d58ca159ab926e6028b43c284 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Sat, 12 Oct 2024 17:04:42 +0200
 Subject: [PATCH] wiki-link add link to wiki in sidebar
@@ -32,5 +32,5 @@ index 8d26115dfa..e0c65e7620 100644
        <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
      );
 -- 
-2.47.0
+2.48.1
 

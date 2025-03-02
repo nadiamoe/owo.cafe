@@ -1,4 +1,4 @@
-From 94012cf99ff4da4fd2963b8123d47679f28ee657 Mon Sep 17 00:00:00 2001
+From 50cf10a4cadb8f05f6da8f13f84641b7f9ce7e38 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Thu, 22 Aug 2024 14:30:59 +0200
 Subject: [PATCH] owocafe: add warning for public posts
@@ -51,5 +51,5 @@ index 7a212342c7..6c516b2c56 100644
  
  export default connect(mapStateToProps)(WarningWrapper);
 -- 
-2.47.0
+2.48.1
 
