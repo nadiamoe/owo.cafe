@@ -21,4 +21,4 @@ jobs:
       - name: Publish assets to S3
         run: |-
           mc alias set owocafe "${{ secrets.S3_ENDPOINT }}" "${{ secrets.S3_KEY_ID }}" "${{ secrets.S3_KEY }}"
-          mc cp --recursive assets/out/ "owocafe/${{ secrets.S3_BUCKET }}/assets/"
+          mc cp --recursive assets/ "owocafe/${{ secrets.S3_BUCKET }}/assets/"
