@@ -1,0 +1,24 @@
+name: Publish assets
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    name: Publish assets to S3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up mc
+        run: |-
+          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
+            -o /usr/local/bin/mc
+          chmod +x /usr/local/bin/mc
+          mc --help
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - name: Publish assets to S3
+        run: |-
+          mc alias set owocafe "${{ secrets.S3_ENDPOINT }}" "${{ secrets.S3_KEY_ID }}" "${{ secrets.S3_KEY }}"
+          mc cp --recursive assets/out/ "owocafe/${{ secrets.S3_BUCKET }}/assets/"
