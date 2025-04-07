@@ -5,5 +5,3 @@ This repository holds and builds the image that powers up [owo.cafe](https://owo
 owo.cafe is based on Mastodon and contains some patches for styling, branding, and localization.
 
 Code including scripts, styles, and patches, is licensed under AGPL-3 (see `LICENSE`). Assets, translations, and other non-code files are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-The asset [hellomynameis](assets/hellomynameis-alternative.svg) is copyrighted by Alejandra Hg (2024). Some rights reserved, under the [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
