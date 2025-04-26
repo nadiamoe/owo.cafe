@@ -17,8 +17,8 @@
   "status.continued_thread": "Hilo",
 
   "status.reblogs.empty": "Nadie ha reposteado esto aún. Cuando alguien lo haga, aparecerá aquí.",
-  "compose_form.publish": "Enviar",
-  "compose_form.publish_form": "Enviar",
+  "compose_form.publish": "Publicar",
+  "compose_form.publish_form": "Publicar",
 
   "about.domain_blocks.preamble": "owo.cafe normalmente te permite ver el contenido e interactuar con los usuarios de cualquier otro servidor en el Fediverso. Los siguientes dominios han sido bloqueados por el equipo de administración por incumplir las normas de owo.cafe.",
   "about.powered_by": "Red social descentralizada con tecnología de {mastodon}",
