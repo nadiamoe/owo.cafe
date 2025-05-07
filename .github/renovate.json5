@@ -6,8 +6,8 @@
   customManagers: [
     {
       customType: 'regex',
-      fileMatch: [
-        '^Dockerfile$',
+      managerFilePatterns: [
+        '/^Dockerfile$/',
       ],
       datasourceTemplate: 'docker',
       depNameTemplate: 'ghcr.io/mastodon/mastodon',
@@ -17,8 +17,8 @@
     },
     {
       customType: 'regex',
-      fileMatch: [
-        '^Dockerfile$',
+      managerFilePatterns: [
+        '/^Dockerfile$/',
       ],
       datasourceTemplate: 'node-version',
       depNameTemplate: 'node',
@@ -28,8 +28,8 @@
     },
     {
       customType: 'regex',
-      fileMatch: [
-        '^Dockerfile.streaming$',
+      managerFilePatterns: [
+        '/^Dockerfile.streaming$/',
       ],
       datasourceTemplate: 'docker',
       depNameTemplate: 'ghcr.io/mastodon/mastodon-streaming',
