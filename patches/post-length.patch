@@ -1,4 +1,4 @@
-From 91c02b9a5aac9abf0cd5428f4150c0ad0cd5ab4d Mon Sep 17 00:00:00 2001
+From fc88d19e2a786e83550c20c295ccf9847e47067f Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Sun, 25 Aug 2024 20:15:02 +0200
 Subject: [PATCH] owocafe: custom post length in backend
@@ -8,7 +8,7 @@ Subject: [PATCH] owocafe: custom post length in backend
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/app/validators/status_length_validator.rb b/app/validators/status_length_validator.rb
-index dc841ded3e..5ac92aa574 100644
+index 575aaf1869..20871331a0 100644
 --- a/app/validators/status_length_validator.rb
 +++ b/app/validators/status_length_validator.rb
 @@ -1,7 +1,7 @@
@@ -21,5 +21,5 @@ index dc841ded3e..5ac92aa574 100644
    URL_PLACEHOLDER = 'x' * 23
  
 -- 
-2.48.1
+2.50.0
 
