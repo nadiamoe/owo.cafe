@@ -1,0 +1,27 @@
+From 719c587a71c43f8c7cdd5ae87b1d8a034343273c Mon Sep 17 00:00:00 2001
+From: Nadia Santalla <nadia@santalla.io>
+Date: Tue, 8 Jul 2025 19:08:57 +0200
+Subject: [PATCH] owocafe: set higher rate limit for statuses
+
+---
+ app/lib/rate_limiter.rb | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/app/lib/rate_limiter.rb b/app/lib/rate_limiter.rb
+index 4a0b35b081..291510ab88 100644
+--- a/app/lib/rate_limiter.rb
++++ b/app/lib/rate_limiter.rb
+@@ -10,8 +10,8 @@ class RateLimiter
+     }.freeze,
+ 
+     statuses: {
+-      limit: 300,
+-      period: 3.hours.freeze,
++      limit: 400,
++      period: 2.hours.freeze,
+     }.freeze,
+ 
+     reports: {
+-- 
+2.50.0
+
