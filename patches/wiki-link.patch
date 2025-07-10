@@ -1,36 +1,39 @@
-From e2c3b88a20df3e3d58ca159ab926e6028b43c284 Mon Sep 17 00:00:00 2001
+From 8e3add3e101fb16c0fe627536f3965342bcdcc90 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
-Date: Sat, 12 Oct 2024 17:04:42 +0200
-Subject: [PATCH] wiki-link add link to wiki in sidebar
+Date: Tue, 8 Jul 2025 18:59:41 +0200
+Subject: [PATCH] owocafe: add link to wiki
 
 ---
- app/javascript/mastodon/features/getting_started/index.jsx | 6 ++++++
- 1 file changed, 6 insertions(+)
+ .../mastodon/features/navigation_panel/index.tsx         | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/app/javascript/mastodon/features/getting_started/index.jsx b/app/javascript/mastodon/features/getting_started/index.jsx
-index 8d26115dfa..e0c65e7620 100644
---- a/app/javascript/mastodon/features/getting_started/index.jsx
-+++ b/app/javascript/mastodon/features/getting_started/index.jsx
-@@ -22,6 +22,7 @@ import PersonAddIcon from '@/material-icons/400-24px/person_add.svg?react';
- import PublicIcon from '@/material-icons/400-24px/public.svg?react';
- import SettingsIcon from '@/material-icons/400-24px/settings-fill.svg?react';
+diff --git a/app/javascript/mastodon/features/navigation_panel/index.tsx b/app/javascript/mastodon/features/navigation_panel/index.tsx
+index b62e8f9fa6..155e25b586 100644
+--- a/app/javascript/mastodon/features/navigation_panel/index.tsx
++++ b/app/javascript/mastodon/features/navigation_panel/index.tsx
+@@ -26,6 +26,7 @@ import SettingsIcon from '@/material-icons/400-24px/settings.svg?react';
+ import StarActiveIcon from '@/material-icons/400-24px/star-fill.svg?react';
  import StarIcon from '@/material-icons/400-24px/star.svg?react';
+ import TrendingUpIcon from '@/material-icons/400-24px/trending_up.svg?react';
 +import WikiIcon from '@/material-icons/400-24px/edit_note-fill.svg?react';
  import { fetchFollowRequests } from 'mastodon/actions/accounts';
- import Column from 'mastodon/components/column';
- import ColumnHeader from 'mastodon/components/column_header';
-@@ -108,6 +109,11 @@ class GettingStarted extends ImmutablePureComponent {
+ import { openNavigation, closeNavigation } from 'mastodon/actions/navigation';
+ import { Account } from 'mastodon/components/account';
+@@ -224,6 +225,14 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
+       {banner && <div className='navigation-panel__banner'>{banner}</div>}
  
-     const navItems = [];
- 
-+    navItems.push(
-+      <ColumnSubheading key='header-owocafe' text="owo.cafe" />,
-+      <ColumnLink key='wiki' icon='wiki' iconComponent={WikiIcon} text='Wiki' href='https://wiki.owo.cafe' target='_blank' />,
-+    );
+       <div className='navigation-panel__menu'>
++        <ColumnLink
++          to='https://wiki.owo.cafe'
++          icon='wiki'
++          iconComponent={WikiIcon}
++          activeIconComponent={WikiIcon}
++          text='Wiki'
++        />
 +
-     navItems.push(
-       <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
-     );
+         {signedIn && (
+           <>
+             {!multiColumn && (
 -- 
-2.48.1
+2.50.0
 
