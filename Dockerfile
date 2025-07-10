@@ -63,11 +63,15 @@ FROM mastodon AS rebuilder
 
 USER root
 ARG TARGETARCH
+ARG TARGETPLATFORM
 ARG NODE_VERSION="22.17.0"
 ENV NODEARCH=${TARGETARCH/amd/x}
 RUN curl -o- https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODEARCH}.tar.gz | tar -xzC /opt/
 ENV PATH=${PATH}:/opt/node-v${NODE_VERSION}-linux-${NODEARCH}/bin/
-RUN <<EOF
+RUN \
+  --mount=type=cache,id=corepack-cache-${TARGETPLATFORM},target=/usr/local/share/.cache/corepack,sharing=locked \
+  --mount=type=cache,id=yarn-cache-${TARGETPLATFORM},target=/usr/local/share/.cache/yarn,sharing=locked \
+  <<EOF
   set -eo pipefail
 
   npm install -g yarn corepack
