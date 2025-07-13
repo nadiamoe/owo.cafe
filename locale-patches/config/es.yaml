@@ -2,7 +2,7 @@
 es:
   themes:
     default: Espresso
-    latte: Latte
+    latte: Latte (en desuso) # Deprecated
     mastodon: Mastodon
   about:
     federation_hint_html: Con una cuenta en %{instance} podrás seguir cuentas en %{instance} y en el resto del Fediverso.
