@@ -29,10 +29,6 @@
   "compose_form.encryption_warning": "Las menciones privadas no están cifradas extremo a extremo. No te recomendamos usarlas para compartir información sensible o privada.",
   "error.unexpected_crash.next_steps": "Intenta actualizar la página. Si eso no ayuda, es posible que puedas usar owo.cafe a través de otro navegador o aplicación nativa.",
   "error.unexpected_crash.next_steps_addons": "Intenta deshabilitarlos y recarga la página. Si eso no ayuda, podrías usar owo.cafe a través de un navegador web diferente o aplicación nativa.",
-  "interaction_modal.description.favourite": "Necesitas una cuenta en owo.cafe para poder marcar como favorito este post.",
-  "interaction_modal.description.follow": "Necesitas una cuenta en owo.cafe para poder seguir a esta persona.",
-  "interaction_modal.description.reblog": "Necesitas una cuenta en owo.cafe para poder repostear este post.",
-  "interaction_modal.description.reply": "Necesitas una cuenta en owo.cafe para poder responder a este post.",
   "notifications_permission_banner.how_to_control": "Para recibir notificaciones cuando owo.cafe no esté abierto tendrás que habilitar las notificaciones de escritorio. Puedes controlar con precisión qué tipos de interacciones generan notificaciones de escritorio a través del botón {icon} de arriba una vez que estén habilitadas.",
   "report.thanks.take_action": "Aquí están tus opciones para controlar lo que ves en owo.cafe:",
   "ui.beforeunload": "Tu borrador se perderá si sales de owo.cafe.",
@@ -45,7 +41,6 @@
   "keyboard_shortcuts.home": "Abrir timeline principal",
   "keyboard_shortcuts.local": "Abrir timeline de owo.cafe",
   "navigation_bar.community_timeline": "Timeline de owo.cafe",
-  "navigation_bar.public_timeline": "Timeline federada",
   "subscribed_languages.lead": "Sólo los posts escritos en los idiomas seleccionados aparecerán en tus timelines. Si no selecciones ninguno, verás posts en todos los idiomas.",
 
   "compose_form.spoiler_placeholder": "Aviso de contenido sensible",
@@ -63,7 +58,6 @@
   "keyboard_shortcuts.open_media": "Abrir contenido multimedia",
   "status.media_hidden": "Contenido multimedia oculto",
   "upload_button.label": "Subir fotos o vídeos (JPEG, PNG, GIF, WebM, MP4, MOV)",
-  "upload_modal.edit_media": "Editar contenido multimedia",
 
   "account.featured_tags.title": "Hashtags destacados de {name}",
   "explore.trending_tags": "Hashtags",
@@ -75,12 +69,10 @@
 
   "compose_form.placeholder": "¿Qué hay de nuevo?",
 
-  "account.featured_tags.last_status_never": "No se ha encontrado ningún post.",
   "compose_form.hashtag_warning": "Este post no aparecerá cuando otra gente busque en un hashtag porque no es público.",
   "compose_form.lock_disclaimer": "Tu cuenta no es privada. Cualquiera puede seguirte para ver tus posts marcados como \"Solo seguidores\".",
 
   "dismissable_banner.community_timeline": "Aquí verás posts de otras personas en {domain}.",
-  "dismissable_banner.explore_statuses": "Aquí verás posts populares de otras personas en todo el Fediverso conocido.",
   "dismissable_banner.public_timeline": "Aquí verás todos los posts de todo el Fediverso conocido",
   "empty_column.account_timeline": "No hay posts que mostrar.",
   "empty_column.favourited_statuses": "Aún no has marcado ningún post como favorito. Cuando lo hagas, aparecerá aquí.",
@@ -98,7 +90,6 @@
   "account.mutual": "Mutual",
   "column.pins": "Posts fijados",
   "explore.trending_statuses": "Posts",
-  "navigation_bar.pins": "Posts fijados",
   "search_results.statuses": "Posts",
   "account.featured_tags.last_status_at": "Último post en {date}",
   "confirmations.delete.message": "¿Seguro que quieres borrar este post?",
@@ -116,7 +107,6 @@
   "navigation_bar.compose": "Redactar un nuevo post",
   "notification.update": "{name} ha editado un post",
   "status.filter": "Filtrar este post",
-  "status.pinned": "Post fijado",
 
   "account.report": "Denunciar a @{name}",
   "notification.admin.report": "{name} ha denunciado a {target}",
@@ -136,11 +126,10 @@
   "status.replied_to": "En respuesta a {name}",
 
   "navigation_bar.follow_requests": "Solicitudes de seguimiento",
-  
+
   "compose_form.direct_message_warning_learn_more": "Saber más",
   "navigation_bar.opened_in_classic_interface": "Las páginas específicas, como publicaciones o cuentas, se abren por defecto en la interfaz web clásica.",
   "footer.get_app": "Descargar la aplicación",
-  "footer.invite": "Invitar a gente",
 
   "content_warning.show": "Mostrar post",
   "content_warning.hide": "Ocultar post"
