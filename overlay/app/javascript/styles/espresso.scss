@@ -1,6 +1,6 @@
-@import 'espresso/variables';
-@import 'application';
-@import 'espresso/diff';
+@use 'espresso/variables';
+@use 'espresso/diff';
+@use 'application';
 
-@import 'owocafe/zoom-emojis';
-@import 'owocafe/no-alt';
+@use 'owocafe/zoom-emojis';
+@use 'owocafe/no-alt';

@@ -1,3 +1,8 @@
+@use 'sass:color';
+@use '../mastodon/functions' as *;
+@use '../mastodon/variables' as *;
+@use 'variables' as *;
+
 :root {
   --dropdown-border-color: #{$bg-highlight};
   --dropdown-background-color: #{darken($ui-base-color, 8%)};
@@ -40,7 +45,9 @@
 .privacy-dropdown__option:focus,
 .privacy-dropdown__option:focus .privacy-dropdown__option__additional,
 .privacy-dropdown__option:focus .privacy-dropdown__option__content,
-.privacy-dropdown__option:focus .privacy-dropdown__option__content strong {
+.privacy-dropdown__option:focus .privacy-dropdown__option__content strong,
+.language-dropdown__dropdown__results__item.active,
+.language-dropdown__dropdown__results__item.active .language-dropdown__dropdown__results__item__common-name {
   color: $bg-darker !important;
 }
 
@@ -88,6 +95,11 @@ div.column-header__collapsible {
 // ... Except the header wrapper, which does not have a border (h1.column-header does).
 div.column-header__wrapper {
   background: none !important;
+}
+
+// Do not drop a black background behind avatars, that's bad taste.
+div.account__avatar {
+  background-color: transparent !important;
 }
 
 // In the settings UI, use the lighter bg color.
