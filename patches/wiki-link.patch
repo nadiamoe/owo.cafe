@@ -1,4 +1,4 @@
-From 8e3add3e101fb16c0fe627536f3965342bcdcc90 Mon Sep 17 00:00:00 2001
+From 6aa9366f4b9d2e549b715526ad80e54c318b9c35 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Tue, 8 Jul 2025 18:59:41 +0200
 Subject: [PATCH] owocafe: add link to wiki
@@ -8,7 +8,7 @@ Subject: [PATCH] owocafe: add link to wiki
  1 file changed, 9 insertions(+)
 
 diff --git a/app/javascript/mastodon/features/navigation_panel/index.tsx b/app/javascript/mastodon/features/navigation_panel/index.tsx
-index b62e8f9fa6..155e25b586 100644
+index b62e8f9fa6..4824d8f87f 100644
 --- a/app/javascript/mastodon/features/navigation_panel/index.tsx
 +++ b/app/javascript/mastodon/features/navigation_panel/index.tsx
 @@ -26,6 +26,7 @@ import SettingsIcon from '@/material-icons/400-24px/settings.svg?react';
@@ -24,7 +24,7 @@ index b62e8f9fa6..155e25b586 100644
  
        <div className='navigation-panel__menu'>
 +        <ColumnLink
-+          to='https://wiki.owo.cafe'
++          href='https://wiki.owo.cafe'
 +          icon='wiki'
 +          iconComponent={WikiIcon}
 +          activeIconComponent={WikiIcon}
@@ -35,5 +35,5 @@ index b62e8f9fa6..155e25b586 100644
            <>
              {!multiColumn && (
 -- 
-2.50.0
+2.50.1
 
