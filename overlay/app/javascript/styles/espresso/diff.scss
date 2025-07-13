@@ -81,7 +81,7 @@
 
 // White text for compose textarea
 .compose-form .autosuggest-textarea__textarea {
-  color: #fff;
+  color: #fff !important;
 }
 
 // On 4.3.x, columns stopped having a dedicated background color, and had a border instead. Fix that by setting the bg
