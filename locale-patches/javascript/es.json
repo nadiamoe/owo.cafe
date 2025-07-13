@@ -35,6 +35,7 @@
 
   "column.community": "Timeline de owo.cafe",
   "column.public": "Timeline federada",
+  "column.firehose": "Timelines públicas",
   "empty_column.community": "La timeline de owo.cafe está vacía. uwu.",
   "empty_column.home": "Tu timeline está vacía, pero puedes seguir a alguien para arreglarlo. {suggestions}",
   "keyboard_shortcuts.federated": "Abrir timeline federada",
@@ -60,6 +61,7 @@
   "upload_button.label": "Subir fotos o vídeos (JPEG, PNG, GIF, WebM, MP4, MOV)",
 
   "account.featured_tags.title": "Hashtags destacados de {name}",
+  "explore.title": "Tendencias",
   "explore.trending_tags": "Hashtags",
   "hashtag.follow": "Seguir hashtag",
   "hashtag.unfollow": "Dejar de seguir hashtag",
@@ -125,12 +127,20 @@
 
   "status.replied_to": "En respuesta a {name}",
 
+  "followed_tags": "Hashtags seguidos",
+
   "navigation_bar.follow_requests": "Solicitudes de seguimiento",
+  "navigation_bar.followed_tags": "Hashtags seguidos",
+  "navigation_bar.more": "Más opciones",
+  "navigation_panel.collapse_followed_tags": "Minimizar hashtags seguidos",
+  "navigation_panel.expand_followed_tags": "Expandir hashtags seguidos",
 
   "compose_form.direct_message_warning_learn_more": "Saber más",
   "navigation_bar.opened_in_classic_interface": "Las páginas específicas, como publicaciones o cuentas, se abren por defecto en la interfaz web clásica.",
   "footer.get_app": "Descargar la aplicación",
 
   "content_warning.show": "Mostrar post",
-  "content_warning.hide": "Ocultar post"
+  "content_warning.hide": "Ocultar post",
+
+  "lists.no_lists_yet": "No tienes ninguna lista"
 }
