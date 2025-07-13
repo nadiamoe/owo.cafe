@@ -1,10 +1,11 @@
-name: Publish image
+name: Build container image
 
 on:
+  pull_request: {}
+  workflow_dispatch: {}
   push:
     branches:
       - main
-  workflow_dispatch: {}
 
 jobs:
   publish:
@@ -40,7 +41,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
         with:
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           file: ${{ matrix.image.dockerfile }}
           tags: |
             ghcr.io/${{ matrix.image.name }}:${{ steps.tag.outputs.bare }}
