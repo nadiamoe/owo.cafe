@@ -1,7 +1,1 @@
-@import 'latte/variables';
-@import 'application';
-@import 'mastodon-light/diff';
-@import 'latte/diff';
-
-@import 'owocafe/zoom-emojis';
-@import 'owocafe/no-alt';
+@use 'mastodon-light';
