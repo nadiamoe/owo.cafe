@@ -81,7 +81,7 @@
 
 // The big quote icon shall not be purple.
 .status__quote-icon {
-  color: $text-dim;
+  color: $text-dim !important;
 }
 
 // On 4.3.x, columns stopped having a dedicated background color, and had a border instead. Fix that by setting the bg
