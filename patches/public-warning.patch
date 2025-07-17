@@ -1,4 +1,4 @@
-From c05784d590da7884a0b054ded8c153ea13d637c0 Mon Sep 17 00:00:00 2001
+From fbc61efe6e80a5af2e6e3f7a8b0813cfe66e34de Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Tue, 8 Jul 2025 17:54:12 +0200
 Subject: [PATCH] owocafe: add warning when posting in public
@@ -47,5 +47,5 @@ index f862f84cba..3bbe8a6071 100644
  };
  
 -- 
-2.50.0
+2.50.1
 

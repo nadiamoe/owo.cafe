@@ -1,4 +1,4 @@
-From c85ca3093a3a0df6c17941202b438b694819a32b Mon Sep 17 00:00:00 2001
+From 29f9acea46904ea88c7220c38fd15cb445bbee0c Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Sun, 2 Mar 2025 19:26:15 +0100
 Subject: [PATCH] owocafe: allow longer display names
@@ -22,5 +22,5 @@ index c23549c22d..80f0981ad6 100644
  
    AUTOMATED_ACTOR_TYPES = %w(Application Service).freeze
 -- 
-2.50.0
+2.50.1
 
