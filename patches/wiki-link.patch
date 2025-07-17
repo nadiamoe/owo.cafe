@@ -1,14 +1,14 @@
-From f686253640a89667e113add6fd0648f45179da3c Mon Sep 17 00:00:00 2001
+From 374ac39d97cafb3a635f984f613383e47abfa779 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@santalla.io>
 Date: Tue, 8 Jul 2025 18:59:41 +0200
 Subject: [PATCH] owocafe: add link to wiki
 
 ---
- .../mastodon/features/navigation_panel/index.tsx       | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ .../mastodon/features/navigation_panel/index.tsx     | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
 diff --git a/app/javascript/mastodon/features/navigation_panel/index.tsx b/app/javascript/mastodon/features/navigation_panel/index.tsx
-index b62e8f9fa6..befa50a499 100644
+index b62e8f9fa6..c5c2f4fd26 100644
 --- a/app/javascript/mastodon/features/navigation_panel/index.tsx
 +++ b/app/javascript/mastodon/features/navigation_panel/index.tsx
 @@ -26,6 +26,7 @@ import SettingsIcon from '@/material-icons/400-24px/settings.svg?react';
@@ -19,7 +19,7 @@ index b62e8f9fa6..befa50a499 100644
  import { fetchFollowRequests } from 'mastodon/actions/accounts';
  import { openNavigation, closeNavigation } from 'mastodon/actions/navigation';
  import { Account } from 'mastodon/components/account';
-@@ -224,6 +225,15 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
+@@ -224,6 +225,17 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
        {banner && <div className='navigation-panel__banner'>{banner}</div>}
  
        <div className='navigation-panel__menu'>
@@ -31,6 +31,8 @@ index b62e8f9fa6..befa50a499 100644
 +          activeIconComponent={WikiIcon}
 +          text='Wiki'
 +        />
++
++        <hr />
 +
          {signedIn && (
            <>
