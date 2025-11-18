@@ -102,6 +102,12 @@ div.account__avatar {
   background-color: transparent !important;
 }
 
+// Work around quotes expecting a background that is not there.
+// TODO: Properly fix transparent background in columns.
+div.status--is-quote {
+  overflow-y: hidden;
+}
+
 // In the settings UI, use the lighter bg color.
 div.admin-wrapper {
   background-color: var(--background-color-raised);
