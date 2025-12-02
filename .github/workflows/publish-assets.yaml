@@ -17,7 +17,7 @@ jobs:
             -o /usr/local/bin/mc
           chmod +x /usr/local/bin/mc
           mc --help
-      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Publish assets to S3
         run: |-
           mc alias set owocafe "${{ secrets.S3_ENDPOINT }}" "${{ secrets.S3_KEY_ID }}" "${{ secrets.S3_KEY }}"
