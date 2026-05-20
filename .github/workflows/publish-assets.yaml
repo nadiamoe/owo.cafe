@@ -11,14 +11,14 @@ jobs:
     name: Publish assets to S3
     runs-on: ubuntu-latest
     steps:
-      - name: Set up mc
-        run: |-
-          curl https://dl.min.io/client/mc/release/linux-amd64/mc \
-            -o /usr/local/bin/mc
-          chmod +x /usr/local/bin/mc
-          mc --help
+      - name: Set up rclone
+        run: curl https://rclone.org/install.sh | sudo bash
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Publish assets to S3
-        run: |-
-          mc alias set owocafe "${{ secrets.S3_ENDPOINT }}" "${{ secrets.S3_KEY_ID }}" "${{ secrets.S3_KEY }}"
-          mc cp --recursive assets/ "owocafe/${{ secrets.S3_BUCKET }}/assets/"
+        env:
+          RCLONE_CONFIG_OWOCAFE_TYPE: s3
+          RCLONE_CONFIG_OWOCAFE_PROVIDER: Minio
+          RCLONE_CONFIG_OWOCAFE_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          RCLONE_CONFIG_OWOCAFE_ACCESS_KEY_ID: ${{ secrets.S3_KEY_ID }}
+          RCLONE_CONFIG_OWOCAFE_SECRET_ACCESS_KEY: ${{ secrets.S3_KEY }}
+        run: rclone copy assets/ "owocafe:${{ secrets.S3_BUCKET }}/assets/"
