@@ -22,4 +22,4 @@ jobs:
           RCLONE_CONFIG_OWOCAFE_ACCESS_KEY_ID: ${{ secrets.S3_KEY_ID }}
           RCLONE_CONFIG_OWOCAFE_SECRET_ACCESS_KEY: ${{ secrets.S3_KEY }}
           RCLONE_CONFIG_OWOCAFE_NO_CHECK_BUCKET: "true"
-        run: rclone copy assets/ "owocafe:${{ secrets.S3_BUCKET }}/assets/"
+        run: rclone copy --no-check-dest assets/ "owocafe:${{ secrets.S3_BUCKET }}/assets/"
