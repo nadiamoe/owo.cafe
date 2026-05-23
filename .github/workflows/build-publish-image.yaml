@@ -67,9 +67,5 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          # Disable attestation so scheduled builds can yield exactly the same image if the source tree and remote files
-          # do not change.
-          provenance: false
-          sbom: false
         env:
           SOURCE_DATE_EPOCH: ${{ steps.commit-meta.outputs.timestamp }}
