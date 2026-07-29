@@ -43,7 +43,11 @@
       matchDepNames: [
         'ghcr.io/mastodon/*',
       ],
-      groupName: 'masotodon',
+      groupName: 'mastodon',
+      separateMinorPatch: true,
+      // Grouped branches are named after the group alone, so major, minor and patch updates
+      // would otherwise share a branch and clobber each other.
+      additionalBranchPrefix: '{{updateType}}-',
     },
   ],
 }
