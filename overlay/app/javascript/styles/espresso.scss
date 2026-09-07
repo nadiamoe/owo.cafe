@@ -1,6 +1,7 @@
-@use 'espresso/variables';
-@use 'espresso/diff';
+// Espresso: warm coffee dark theme.
+// application first so our overrides land after the defaults in the cascade.
 @use 'application';
-
+@use 'espresso/tokens';
+@use 'espresso/diff';
 @use 'owocafe/zoom-emojis';
 @use 'owocafe/no-alt';
