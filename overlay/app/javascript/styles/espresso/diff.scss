@@ -1,124 +1,37 @@
-@use 'sass:color';
-@use '../mastodon/functions' as *;
-@use '../mastodon/variables' as *;
-@use 'variables' as *;
+// Element tweaks the token overrides don't cover.
 
-:root {
-  --dropdown-border-color: #{$bg-highlight};
-  --dropdown-background-color: #{darken($ui-base-color, 8%)};
-  --dropdown-shadow: 0 20px 25px -5px #{rgba($base-shadow-color, 0.25)},
-  0 8px 10px -6px #{rgba($base-shadow-color, 0.25)};
-  // modal-* are used for the hover card, among other things. Should be different than the column bg.
-  --modal-background-color: #{darken($ui-base-color, 8%)};
-  --modal-border-color: #{$ui-base-color};
-  --background-filter: blur(10px) saturate(180%) contrast(75%) brightness(70%);
-  --background-color: #{darken($ui-base-color, 8%)};
-  --background-border-color: #{$ui-base-color}; // Make it effectively borderless.
-  --background-color-raised: #{$ui-base-color}; // BG color for "raised" items, such as columns.
-  --background-color-tint: #{rgba(darken($ui-base-color, 8%), 0.9)};
-  --surface-background-color: #{$ui-base-color};
-  --surface-variant-background-color: #{$ui-base-color};
-  --surface-variant-active-background-color: #{lighten($ui-base-color, 4%)};
-  --on-surface-color: #{transparentize($ui-base-color, 0.5)};
-  --avatar-border-radius: 8px;
-  --media-outline-color: #{rgba(#fcf8ff, 0.15)};
-  --overlay-icon-shadow: drop-shadow(0 0 8px #{rgba($base-shadow-color, 0.25)});
-  --error-background-color: #{darken($error-red, 16%)};
-  --error-active-background-color: #{darken($error-red, 12%)};
-  --on-error-color: #fff;
-}
-
-// Compose form warnings.
-.compose-form__warning {
-  background-color: $bg-dark !important;
-  color: $action-soft !important;
-}
-
-// Our highlight color is quite bright. Make text inside hightlighted stuff black.
-.dropdown-button.active,
-.admin-wrapper .content__heading__tabs a.selected,
-.language-dropdown__dropdown__results__item.active .language-dropdown__dropdown__results__item.active>.language-dropdown__dropdown__results__item__common-name,
-.privacy-dropdown__option.active,
-.privacy-dropdown__option.active .privacy-dropdown__option__additional,
-.privacy-dropdown__option.active .privacy-dropdown__option__content,
-.privacy-dropdown__option.active .privacy-dropdown__option__content strong,
-.privacy-dropdown__option:focus,
-.privacy-dropdown__option:focus .privacy-dropdown__option__additional,
-.privacy-dropdown__option:focus .privacy-dropdown__option__content,
-.privacy-dropdown__option:focus .privacy-dropdown__option__content strong,
-.language-dropdown__dropdown__results__item.active,
-.language-dropdown__dropdown__results__item.active .language-dropdown__dropdown__results__item__common-name {
-  color: $bg-darker !important;
-}
-
-// Make links in columns white by default
-.column-link {
-  color: $action-soft;
-}
-
-// Nuke dropdown border.
+// Borderless dropdowns.
 .dropdown-menu {
   border: none;
 }
 
-// This defaults to --dropdown-border-color. Don't want that as we set border color to match bg color.
-.dropdown-menu__item a:hover {
-  background-color: $bg-highlight;
-}
-
-// Use a different, lighter background for the leftmost drawer.
-// TODO: Decide if we want to keep this after v4.3.0.
+// Lighter background for the leftmost drawer.
 .drawer__inner,
 .drawer__inner__mastodon,
 .drawer__header {
-  background-color: $bg-highlight !important;
+  background-color: var(--color-bg-tertiary) !important;
 }
 
-// White text for compose textarea
+// No box behind avatars.
+.account__avatar {
+  background-color: transparent !important;
+}
+
+// Brighter than the cream body text.
 .compose-form .autosuggest-textarea__textarea {
   color: #fff !important;
 }
 
-// The big quote icon shall not be purple.
-.status__quote-icon {
-  color: $text-dim !important;
-}
-
-// On 4.3.x, columns stopped having a dedicated background color, and had a border instead. Fix that by setting the bg
-// color of all divs immediately inside a column, and the column header.
-div.column>div,
-h1.column-header,
-div.column-header__collapsible {
-  background-color: var(--background-color-raised);
-}
-
-// ... Except the header wrapper, which does not have a border (h1.column-header does).
-div.column-header__wrapper {
-  background: none !important;
-}
-
-// Do not drop a black background behind avatars, that's bad taste.
-div.account__avatar {
-  background-color: transparent !important;
-}
-
-// Work around quotes expecting a background that is not there.
-// TODO: Properly fix transparent background in columns.
-div.status--is-quote {
-  overflow-y: hidden;
-}
-
-// In the settings UI, use the lighter bg color.
+// Settings UI: lighter surface for the wrapper and selected item.
+// TODO: re-verify selectors, admin markup drifts between releases.
 div.admin-wrapper {
-  background-color: var(--background-color-raised);
+  background-color: var(--color-bg-secondary);
 }
 
-// Also for the settings ui, really highlight the currently selected menu.
 .sidebar ul li a.selected {
-  background-color: var(--background-color-raised);
+  background-color: var(--color-bg-secondary);
 }
 
-// Settitngs UI: Darker background for select items.
 .simple_form select {
-  background-color: var(--background-color) !important;
+  background-color: var(--color-bg-primary) !important;
 }
