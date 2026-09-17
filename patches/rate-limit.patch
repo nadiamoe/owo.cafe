@@ -1,6 +1,6 @@
-From c406287b299b8535503f2917e187dd6db4993486 Mon Sep 17 00:00:00 2001
-From: Nadia Santalla <nadia@santalla.io>
-Date: Tue, 8 Jul 2025 19:08:57 +0200
+From 538c7fff864f1e1cb1f3535163c6972dabf7a57e Mon Sep 17 00:00:00 2001
+From: Nadia Santalla <nadia@nadia.moe>
+Date: Wed, 22 Jul 2026 16:02:31 +0200
 Subject: [PATCH] owocafe: set higher rate limit for statuses
 
 ---
@@ -23,5 +23,5 @@ index 4a0b35b081..291510ab88 100644
  
      reports: {
 -- 
-2.50.1
+2.55.0
 

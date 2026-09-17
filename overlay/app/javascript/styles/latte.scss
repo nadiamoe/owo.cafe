@@ -1,1 +1,6 @@
-@use 'mastodon-light';
+// Latte: light companion to espresso. Stock build; the light look comes from the runtime
+// data-color-scheme toggle.
+// TODO: make it a real cream theme via a light-scheme token override, like espresso/tokens.scss.
+@use 'application';
+@use 'owocafe/zoom-emojis';
+@use 'owocafe/no-alt';

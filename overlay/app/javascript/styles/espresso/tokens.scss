@@ -1,0 +1,42 @@
+// Espresso: brown surfaces, gold accent, cream text.
+// Retinting the ramp and brand tokens cascades to every semantic token derived from them.
+//
+// "Kiara's espresso palette":
+//   $bg-darker #21140c   $bg-dark #34251b   $bg-highlight #4f3828
+//   $highlight #e5ab14   $action #d9a982    $action-soft #dfc29f   $text-dim #9c856a
+
+// Cream at the light end, near-black brown at the dark end. The dark scheme takes backgrounds from
+// the dark end, text from the light end.
+// :root outweighs the html selector the default ramp sits on.
+:root {
+  --color-grey-50: #f0e3d3;
+  --color-grey-100: #dfc29f; // $action-soft, feeds --color-text-primary
+  --color-grey-200: #dcb691;
+  --color-grey-300: #d9a982; // $action, feeds --color-text-secondary
+  --color-grey-400: #bf9670;
+  --color-grey-500: #9c856a; // $text-dim
+  --color-grey-600: #7c5f45;
+  --color-grey-700: #5f4634;
+  --color-grey-800: #4f3828; // $bg-highlight, feeds --color-bg-tertiary / --color-border-primary
+  --color-grey-900: #34251b; // $bg-dark, feeds --color-bg-secondary
+  --color-grey-950: #21140c; // $bg-darker, feeds --color-bg-primary
+}
+
+// Brand tokens set directly, not via the ramp: gold is light and would break the ramp's ordering.
+[data-color-scheme='dark'],
+html:not([data-color-scheme]) {
+  --color-text-brand: #e5ab14; // $highlight, links and brand text
+  --color-text-brand-soft: #e5ab14;
+  --color-text-brand-on-inverted: #cf9a0f;
+
+  --color-bg-brand-base: #e5ab14; // primary button background
+  --color-bg-brand-base-hover: #cf9a0f; // ~darken 7%, focus/hover
+  --color-bg-brand-soft: #6b4f0a;
+  --color-bg-brand-softest: #3f2f06;
+
+  --color-border-brand: #e5ab14;
+  --color-border-brand-soft: #cf9a0f;
+
+  // Accent is bright, so on-accent text must be dark.
+  --color-text-on-brand-base: #21140c; // $bg-darker
+}
