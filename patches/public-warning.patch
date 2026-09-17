@@ -1,6 +1,6 @@
-From fbc61efe6e80a5af2e6e3f7a8b0813cfe66e34de Mon Sep 17 00:00:00 2001
-From: Nadia Santalla <nadia@santalla.io>
-Date: Tue, 8 Jul 2025 17:54:12 +0200
+From d7edacb2e539f3b56509718ae9e3911526751c63 Mon Sep 17 00:00:00 2001
+From: Nadia Santalla <nadia@nadia.moe>
+Date: Wed, 22 Jul 2026 16:02:26 +0200
 Subject: [PATCH] owocafe: add warning when posting in public
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH] owocafe: add warning when posting in public
  1 file changed, 16 insertions(+), 1 deletion(-)
 
 diff --git a/app/javascript/mastodon/features/compose/components/warning.tsx b/app/javascript/mastodon/features/compose/components/warning.tsx
-index f862f84cba..3bbe8a6071 100644
+index 875d6df58d..b5d12a832d 100644
 --- a/app/javascript/mastodon/features/compose/components/warning.tsx
 +++ b/app/javascript/mastodon/features/compose/components/warning.tsx
 @@ -17,11 +17,12 @@ const selector = createSelector(
@@ -25,7 +25,7 @@ index f862f84cba..3bbe8a6071 100644
      useAppSelector(selector);
    if (needsLockWarning) {
      return (
-@@ -72,6 +73,20 @@ export const Warning = () => {
+@@ -76,6 +77,20 @@ export const Warning = () => {
      );
    }
  
@@ -47,5 +47,5 @@ index f862f84cba..3bbe8a6071 100644
  };
  
 -- 
-2.50.1
+2.55.0
 
