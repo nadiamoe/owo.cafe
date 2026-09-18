@@ -3,7 +3,7 @@ ARG MASTODON_VERSION="v4.5.18"
 FROM ghcr.io/mastodon/mastodon:${MASTODON_VERSION} AS mastodon
 
 # TODO: locale-patcher could be merged with patcher, but debian does not have yq on their repos yet.
-FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b AS locale-patcher
+FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS locale-patcher
 
 RUN <<EOF
   set -eo pipefail
@@ -43,7 +43,7 @@ RUN <<EOF
   done
 EOF
 
-FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b AS patcher
+FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS patcher
 
 COPY --from=mastodon /opt/mastodon /opt/mastodon
 
