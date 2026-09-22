@@ -2,31 +2,37 @@
 ARG MASTODON_VERSION="v4.7.1"
 FROM ghcr.io/mastodon/mastodon:${MASTODON_VERSION} AS mastodon
 
-# TODO: locale-patcher could be merged with patcher, but debian does not have yq on their repos yet.
-FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS locale-patcher
+FROM mastodon AS patcher
+
+USER root
+ARG TARGETARCH
+ARG YQ_VERSION="4.53.6"
+# Debian's yq is the Python/jq-wrapper (kislyuk/yq), incompatible with the load()/*= syntax
+# below. Fetch the real (mikefarah) binary instead.
+ADD https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_${TARGETARCH} /usr/local/bin/yq
 
 RUN <<EOF
   set -eo pipefail
 
-  apk add --update jq yq
-  mkdir -p /locales/config /locales/javascript
-  mkdir /patches
-  mkdir -p /output/config /output/javascript
+  chmod +x /usr/local/bin/yq
+  apt-get update
+  apt-get install -y --no-install-recommends jq patch
+  rm -rf /var/lib/apt/lists/*
 EOF
 
 # Reminder: Wicked docker COPY syntax will copy files inside folder, instead of folder itself.
-COPY locale-patches/ /patches
-COPY --from=mastodon /opt/mastodon/config/locales/ /locales/config
-COPY --from=mastodon /opt/mastodon/app/javascript/mastodon/locales/ /locales/javascript
+COPY locale-patches/ /locale-patches
+COPY patches /patches
 
 RUN <<EOF
   set -eo pipefail
 
-  cd /locales/javascript
+  cd /opt/mastodon/app/javascript/mastodon/locales
   for lang in es en; do
     for j in $lang*.json; do
       echo Patching $j
-      jq -s '.[0] * .[1]' /locales/javascript/$j /patches/javascript/$lang.json > /output/javascript/$j
+      jq -s '.[0] * .[1]' $j /locale-patches/javascript/$lang.json > $j.new
+      mv $j.new $j
     done
   done
 EOF
@@ -34,22 +40,16 @@ EOF
 RUN <<EOF
   set -eo pipefail
 
-  cd /locales/config
+  cd /opt/mastodon/config/locales
   for lang in es en; do
     for y in $lang*; do
       echo Patching $y
-      yq '. *= load("/patches/config/'$lang'.yaml")' /locales/config/$y > /output/config/$y
+      yq '. *= load("/locale-patches/config/'$lang'.yaml")' $y > $y.new
+      mv $y.new $y
     done
   done
 EOF
 
-FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6 AS patcher
-
-COPY --from=mastodon /opt/mastodon /opt/mastodon
-
-RUN apk add --update patch
-
-COPY patches /patches
 RUN <<EOF
   set -eo pipefail
 
@@ -89,8 +89,6 @@ EOF
 WORKDIR /opt/mastodon
 
 COPY --from=patcher /opt/mastodon /opt/mastodon
-COPY --from=locale-patcher /output/javascript /opt/mastodon/app/javascript/mastodon/locales/
-COPY --from=locale-patcher /output/config /opt/mastodon/config/locales/
 COPY overlay/ /opt/mastodon/
 
 # Prepend ai-robots.txt to upstream robots.txt.
