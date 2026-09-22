@@ -37,6 +37,17 @@
         'ARG MASTODON_VERSION="(?<currentValue>.*)"',
       ],
     },
+    {
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^Dockerfile$/',
+      ],
+      datasourceTemplate: 'github-releases',
+      depNameTemplate: 'mikefarah/yq',
+      matchStrings: [
+        'ARG YQ_VERSION="(?<currentValue>.*)"',
+      ],
+    },
   ],
   packageRules: [
     {
