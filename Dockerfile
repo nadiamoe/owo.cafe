@@ -10,6 +10,7 @@ ARG YQ_VERSION="4.53.6"
 # Debian's yq is the Python/jq-wrapper (kislyuk/yq), incompatible with the load()/*= syntax
 # below. Fetch the real (mikefarah) binary instead.
 ADD https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_${TARGETARCH} /usr/local/bin/yq
+ADD https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt /tmp/ai-robots.txt
 
 RUN <<EOF
   set -eo pipefail
@@ -59,6 +60,16 @@ RUN <<EOF
   done
 EOF
 
+# Prepend ai-robots.txt to upstream robots.txt.
+RUN <<EOF
+  set -eo pipefail
+
+  cd /opt/mastodon/public
+  cat /tmp/ai-robots.txt robots.txt > robots.txt.new
+  mv robots.txt{.new,}
+  rm /tmp/ai-robots.txt
+EOF
+
 FROM mastodon AS rebuilder
 
 USER root
@@ -73,6 +84,7 @@ RUN <<EOF
   tar -xzC /opt/ -f /tmp/node.tar.gz
   rm /tmp/node.tar.gz
 EOF
+
 ENV PATH=${PATH}:/opt/node-v${NODE_VERSION}-linux-${NODEARCH}/bin/
 RUN \
   --mount=type=cache,id=corepack-cache-${TARGETPLATFORM},target=/usr/local/share/.cache/corepack,sharing=locked \
@@ -90,15 +102,6 @@ WORKDIR /opt/mastodon
 
 COPY --from=patcher /opt/mastodon /opt/mastodon
 COPY overlay/ /opt/mastodon/
-
-# Prepend ai-robots.txt to upstream robots.txt.
-ADD https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt /tmp/ai-robots.txt
-RUN <<EOF
-  set -eo pipefail
-
-  cat /tmp/ai-robots.txt public/robots.txt > public/robots.txt.new
-  mv public/robots.txt{.new,}
-EOF
 
 # Recompile assets, now with patches and overlays.
 RUN <<EOF
