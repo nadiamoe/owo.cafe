@@ -5,6 +5,12 @@
   border: none;
 }
 
+// Distinct background for columns
+.column {
+  background-color: var(--color-grey-900); // As opposed to 950 for body bg.
+  background-clip: content-box;
+}
+
 // Lighter background for the leftmost drawer.
 .drawer__inner,
 .drawer__inner__mastodon,
