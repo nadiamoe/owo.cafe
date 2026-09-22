@@ -66,7 +66,13 @@ ARG TARGETARCH
 ARG TARGETPLATFORM
 ARG NODE_VERSION="24.21.0"
 ENV NODEARCH=${TARGETARCH/amd/x}
-RUN curl -o- https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODEARCH}.tar.gz | tar -xzC /opt/
+ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODEARCH}.tar.gz /tmp/node.tar.gz
+RUN <<EOF
+  set -eo pipefail
+
+  tar -xzC /opt/ -f /tmp/node.tar.gz
+  rm /tmp/node.tar.gz
+EOF
 ENV PATH=${PATH}:/opt/node-v${NODE_VERSION}-linux-${NODEARCH}/bin/
 RUN \
   --mount=type=cache,id=corepack-cache-${TARGETPLATFORM},target=/usr/local/share/.cache/corepack,sharing=locked \
@@ -88,11 +94,11 @@ COPY --from=locale-patcher /output/config /opt/mastodon/config/locales/
 COPY overlay/ /opt/mastodon/
 
 # Prepend ai-robots.txt to upstream robots.txt.
+ADD https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt /tmp/ai-robots.txt
 RUN <<EOF
   set -eo pipefail
 
-  curl -sSL https://raw.githubusercontent.com/ai-robots-txt/ai.robots.txt/refs/heads/main/robots.txt |
-    cat - public/robots.txt > public/robots.txt.new
+  cat /tmp/ai-robots.txt public/robots.txt > public/robots.txt.new
   mv public/robots.txt{.new,}
 EOF
 
