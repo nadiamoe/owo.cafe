@@ -1,6 +1,7 @@
-// Latte: light companion to espresso. Stock build; the light look comes from the runtime
-// data-color-scheme toggle.
-// TODO: make it a real cream theme via a light-scheme token override, like espresso/tokens.scss.
-@use 'application';
-@use 'owocafe/zoom-emojis';
-@use 'owocafe/no-alt';
+// Alias to espresso, which is now dual palette after the 4.6.x update.
+@use 'espresso';
+
+// For some reason this, or something that makes latte difference from espresso, is needed for the build to succeed.
+.nonexistent-nyaaaaaaaaa {
+  display: none;
+}
