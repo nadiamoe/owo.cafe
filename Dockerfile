@@ -1,5 +1,5 @@
 # CI/CD greps the following line to figure out the image build tag. Keep it as it is, including quotes.
-ARG MASTODON_VERSION="v4.7.2"
+ARG MASTODON_VERSION="v4.7.3"
 FROM ghcr.io/mastodon/mastodon:${MASTODON_VERSION} AS mastodon
 
 FROM mastodon AS patcher
