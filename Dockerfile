@@ -75,7 +75,7 @@ FROM mastodon AS rebuilder
 USER root
 ARG TARGETARCH
 ARG TARGETPLATFORM
-ARG NODE_VERSION="24.21.0"
+ARG NODE_VERSION="24.22.1"
 ENV NODEARCH=${TARGETARCH/amd/x}
 ADD https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-${NODEARCH}.tar.gz /tmp/node.tar.gz
 RUN <<EOF
