@@ -60,5 +60,16 @@
       // would otherwise share a branch and clobber each other.
       additionalBranchPrefix: '{{updateType}}-',
     },
+    {
+      matchDepNames: [
+        'node',
+        'mikefarah/yq',
+      ],
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+      ],
+      automerge: true,
+    },
   ],
 }
