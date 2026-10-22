@@ -6,7 +6,7 @@ FROM mastodon AS patcher
 
 USER root
 ARG TARGETARCH
-ARG YQ_VERSION="4.53.6"
+ARG YQ_VERSION="4.54.1"
 # Debian's yq is the Python/jq-wrapper (kislyuk/yq), incompatible with the load()/*= syntax
 # below. Fetch the real (mikefarah) binary instead.
 ADD https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_${TARGETARCH} /usr/local/bin/yq
