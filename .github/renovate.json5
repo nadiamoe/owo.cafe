@@ -12,7 +12,7 @@
       datasourceTemplate: 'docker',
       depNameTemplate: 'ghcr.io/mastodon/mastodon',
       matchStrings: [
-        'ARG MASTODON_VERSION="(?<currentValue>.*)"',
+        'ARG MASTODON_VERSION="(?<currentValue>[0-9A-Za-z.+-]+)@(?<currentDigest>sha256:[a-f0-9]+)"',
       ],
     },
     {
@@ -34,7 +34,7 @@
       datasourceTemplate: 'docker',
       depNameTemplate: 'ghcr.io/mastodon/mastodon-streaming',
       matchStrings: [
-        'ARG MASTODON_VERSION="(?<currentValue>.*)"',
+        'ARG MASTODON_VERSION="(?<currentValue>[0-9A-Za-z.+-]+)@(?<currentDigest>sha256:[a-f0-9]+)"',
       ],
     },
     {

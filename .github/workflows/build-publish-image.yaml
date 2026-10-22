@@ -46,7 +46,11 @@ jobs:
       - name: Extract Mastodon version
         id: version
         run: |
-          echo "mastodon=$(sed -nr 's/^ARG MASTODON_VERSION="(.*)"$/\1/p' '${{ matrix.image.dockerfile }}')" >> "$GITHUB_OUTPUT"
+          extract() { sed -nr 's/^ARG MASTODON_VERSION="([0-9A-Za-z.+-]+).*"$/\1/p' "$1"; }
+          main=$(extract Dockerfile)
+          streaming=$(extract Dockerfile.streaming)
+          [ "$main" = "$streaming" ] || { echo "Mastodon versions differ: $main vs $streaming"; exit 1; }
+          echo "mastodon=$main" >> "$GITHUB_OUTPUT"
       - name: Generate tag
         id: tag
         run: |
