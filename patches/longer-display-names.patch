@@ -1,4 +1,4 @@
-From 399321797718dbb2433d60585c1e803d465e8283 Mon Sep 17 00:00:00 2001
+From 5a92bc04a1e7c3979932bf70f54ae141339f7dc9 Mon Sep 17 00:00:00 2001
 From: Nadia Santalla <nadia@nadia.moe>
 Date: Wed, 22 Jul 2026 16:02:38 +0200
 Subject: [PATCH] owocafe: allow longer display names
@@ -9,10 +9,10 @@ Accommodate more emoji
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/app/models/account.rb b/app/models/account.rb
-index 7550bb2a9d..f979b0c443 100644
+index 0e5a2ddfe8..ae3b18e244 100644
 --- a/app/models/account.rb
 +++ b/app/models/account.rb
-@@ -76,7 +76,7 @@ class Account < ApplicationRecord
+@@ -77,7 +77,7 @@ class Account < ApplicationRecord
    URL_PREFIX_RE = %r{\Ahttp(s?)://[^/]+}
    USERNAME_ONLY_RE = /\A#{USERNAME_RE}\z/i
    USERNAME_LENGTH_LIMIT = 30
@@ -22,5 +22,5 @@ index 7550bb2a9d..f979b0c443 100644
  
    # Hard limits for federated content
 -- 
-2.55.0
+2.56.0
 
