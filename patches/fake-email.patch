@@ -1,0 +1,24 @@
+From a36c7a4aae5384724be366b95b7d99bef7d5a057 Mon Sep 17 00:00:00 2001
+From: Nadia Santalla <nadia@nadia.moe>
+Date: Sun, 1 Nov 2026 15:01:11 +0100
+Subject: [PATCH] owocafe: export fake_email in credentials
+
+---
+ app/serializers/rest/credential_account_serializer.rb | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/app/serializers/rest/credential_account_serializer.rb b/app/serializers/rest/credential_account_serializer.rb
+index 2828f60fbf..420651dff7 100644
+--- a/app/serializers/rest/credential_account_serializer.rb
++++ b/app/serializers/rest/credential_account_serializer.rb
+@@ -2,6 +2,7 @@
+ 
+ class REST::CredentialAccountSerializer < REST::AccountSerializer
+   attributes :source
++  attribute(:fake_email) { object.local_username_and_domain }
+ 
+   has_one :role, serializer: REST::RoleSerializer
+ 
+-- 
+2.56.0
+
