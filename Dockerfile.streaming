@@ -1,4 +1,4 @@
 # We don't patch or otherwise modify the streaming API. This is just for uniformity and avoid image drift.
 # CI/CD greps the following line to figure out the image build tag. Keep it as it is, including quotes.
-ARG MASTODON_VERSION="v4.7.4@sha256:b896be8bc93db513695c3ebac8442c09453065ab1be06dfc49fe3c16a91c825c"
+ARG MASTODON_VERSION="v4.7.5@sha256:3859d071e61a0ed2610a00e8048d89310235afb86e6923c0243bb4f9f4a31093"
 FROM ghcr.io/mastodon/mastodon-streaming:${MASTODON_VERSION} AS mastodon
